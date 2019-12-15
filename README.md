@@ -1,4 +1,4 @@
-# Sicp Racket Boilerplate
+# Sicp Racket Exercises
 
 ### Requirements
 
@@ -8,3 +8,13 @@
 - Make
 
 ### Using
+
+run `make test`
+
+### Links
+
+- [Sicp Racket Boilerplate repo from Hexlet](https://github.com/hexlet-boilerplates/sicp-racket)
+- [Recommendations from Hexlet on how to read SICP](https://guides.hexlet.io/how-to-learn-sicp/)
+- [SICP read tracker from Hexlet community](https://sicp.hexlet.io/)
+- [Beautifull SICP html version from Andres Raba](https://sarabander.github.io/sicp/)
+- [Epub, pdf and pocket-pdf versions of SICP](https://github.com/sarabander)
