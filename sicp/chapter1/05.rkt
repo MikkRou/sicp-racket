@@ -18,12 +18,16 @@
 ; (if (= 0 0)
 ;     0
 ;     (p))
+;
+; Will never terminates, because
 ; (p) will recursively call (p)
 
 ; applicative-order
 ; (if (= 0 0)
 ;     0
 ;     (p))
+;
+; (if #t 0 (p))
 ; 0
 
 (check-equal? (test 0 (p)) 0)
