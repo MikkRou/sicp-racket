@@ -1,6 +1,6 @@
 #lang sicp
 
-(#%require rackunit)
+;;; (#%require rackunit)
 
 ; Normal-order evaluation: fully expand and then reduce.
 ; Applicative-order evaluation: evaluate the arguments and then apply.
@@ -12,23 +12,21 @@
       0
       y))
 
-(test 0 (p))
+;;; (test 0 (p))
 
-; normal-order
+; Normal-order
+; (test 0 (p))
+;
 ; (if (= 0 0)
 ;     0
 ;     (p))
 ;
-; Will never terminates, because
-; (p) will recursively call (p)
-
-; applicative-order
-; (if (= 0 0)
-;     0
-;     (p))
-;
-; (if #t 0 (p))
+; (if (#t) 0 (p))
 ; 0
+;
+; Evaluates to 0
 
-(check-equal? (test 0 (p)) 0)
-(check-equal? (test (p) "y") "y")
+; Applicative-order
+; (test 0 (p))
+; (test 0 (p)) ; Will never terminates because it will always try to evaluate (p)
+; (test 0 (p))
