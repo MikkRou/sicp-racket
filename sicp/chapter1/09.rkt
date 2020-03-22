@@ -1,3 +1,4 @@
+;;; Recursive process illustrarion.
 (define (+ a b)
   (if = a 0)
   b
@@ -18,6 +19,7 @@
 (inc 8)
 9
 
+;;; Iterative process illustration.
 (define (+ a b)
   (if = a 0)
   b
