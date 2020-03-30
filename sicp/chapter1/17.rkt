@@ -13,7 +13,7 @@
 
 (define (fast-* a b)
   (cond ((= b 0) 0)
-        ((even? b) (fast-* (double a) (half b)))
+        ((even? b) (double (fast-* a (half b))))
         (else (+ a (fast-* a (- b 1))))))
 
 (define (even? num)
