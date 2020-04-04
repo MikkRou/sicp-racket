@@ -18,16 +18,16 @@
   (= n (smallest-divisor n)))
 
 (define (timed-prime-test n)
-  (newline)
-  (display n)
   (start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
   (if (prime? n)
-      (report-prime (- (runtime) start-time))
+      (report-prime n (- (runtime) start-time))
       #f))
 
-(define (report-prime elapsed-time)
+(define (report-prime num elapsed-time)
+  (newline)
+  (display num)
   (display " *** ")
   (display elapsed-time))
 
@@ -49,10 +49,45 @@
       (if (timed-prime-test n)
           (sfp-from (+ n 2) (- counter 1))
           (sfp-from (+ n 2) counter))
-      "  Done."))
+      (display " DONE")))
 
 (search-for-primes 1000 3)
+;;; Output
+;;; 1009 *** 0
+;;; 1013 *** 1
+;;; 1019 *** 1 DONE
 (search-for-primes 10000 3)
+;;; Output
+;;; 10007 *** 1
+;;; 10009 *** 1
+;;; 10037 *** 2 DONE
 (search-for-primes 100000 3)
+;;; Output
+;;; 100003 *** 5
+;;; 100019 *** 4
+;;; 100043 *** 4 DONE
 (search-for-primes 1000000 3)
+;;; Output
+;;; 1000003 *** 13
+;;; 1000033 *** 13
+;;; 1000037 *** 14 DONE
+(search-for-primes 100000000000 3)
+;;; Output
+;;; 100000000003 *** 4126
+;;; 100000000019 *** 4265
+;;; 100000000057 *** 4303 DONE
 (search-for-primes 1000000000000 3)
+;;; Output (It takes more time. Tnew ~= sqrt10 * Tprevios)
+;;; 1000000000039 *** 14086
+;;; 1000000000061 *** 13885
+;;; 1000000000063 *** 13574 DONE
+(search-for-primes 10000000000000 3)
+;;; Output (It takes more time. Tnew ~= sqrt10 * Tprevios)
+;;; 10000000000037 *** 43322
+;;; 10000000000051 *** 42859
+;;; 10000000000099 *** 41459 DONE
+(search-for-primes 100000000000000 3)
+;;; Output (It takes more time. Tnew ~= sqrt10 * Tprevios)
+;;; 100000000000031 *** 131788
+;;; 100000000000067 *** 130708
+;;; 100000000000097 *** 133603 DONE
