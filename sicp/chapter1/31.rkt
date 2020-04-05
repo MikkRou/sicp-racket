@@ -21,6 +21,13 @@
         (iter (next a) (* result (term a)))))
   (iter a 1))
 
+(define (fact n)
+  (define (identity a) a)
+  (define (inc a) (+ a 1))
+  (product identity 1 inc n))
+
+(fact 5) ; 120
+
 (define (count-pi n)
   (define (term k)
     (define (square a) (* a a))
