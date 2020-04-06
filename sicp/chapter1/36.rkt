@@ -25,13 +25,16 @@
   (try first-guess 1))
 
 
-(define (f x)
-  (define (average a b)
-    (/ (+ a b) 2))
-  (average x 
-           (/ (log 1000) (log x))))
+;;; (define (f x)
+;;;   (define (average a b)
+;;;     (/ (+ a b) 2))
+;;;   (average x 
+;;;            (/ (log 1000) (log x))))
+
+(define (average a b)
+  (/ (+ a b) 2))
 
 (fixed-point (lambda (x) (/ (log 1000) (log x))) 2.0)
 ; Iterations: 34, value: 4.555532270803653
-(fixed-point f 2.0)
+(fixed-point (lambda (x) (average x (/ (log 1000) (log x)))) 2.0)
 ; Iterations: 9, value: 4.555537551999825
