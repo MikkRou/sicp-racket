@@ -35,11 +35,9 @@
 ; Iter
 (define (cont-frac n d k)
   (define (iter i acc)
-    (let ((acc (/ (n i) (+ (d i) acc)))
-          (i (- i 1)))
-      (if (= i 0)
-          acc
-          (iter i acc))))
+    (if (= i 0)
+        acc
+        (iter (- i 1) (/ (n i) (+ (d i) acc)))))
   (iter k 0))
 
 ; Get an approximation that is accurate to 4 decimal places.
