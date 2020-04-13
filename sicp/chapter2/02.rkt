@@ -28,14 +28,6 @@
 (define (end-segment segment)
   (cdr segment))
 
-;;; (define (midpoint-segment segment)
-;;;   (make-point
-;;;     (average
-;;;       (x-point (start-segment segment))
-;;;       (x-point (end-segment segment)))
-;;;     (average
-;;;       (y-point (start-segment segment))
-;;;       (y-point (end-segment segment)))))
 (define (midpoint-segment segment)
   (let ((x1 (x-point (start-segment segment)))
         (x2 (x-point (end-segment segment)))
