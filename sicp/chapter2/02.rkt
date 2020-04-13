@@ -22,11 +22,11 @@
 (define (make-segment point-start point-end)
   (cons point-start point-end))
 
-(define (start-segment point)
-  (car point))
+(define (start-segment segment)
+  (car segment))
 
-(define (end-segment point)
-  (cdr point))
+(define (end-segment segment)
+  (cdr segment))
 
 (define (midpoint-segment segment)
   (make-point
