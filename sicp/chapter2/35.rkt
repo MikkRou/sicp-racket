@@ -10,17 +10,20 @@
     +
     0
     (map
-      (lambda (sub-tree)
-        (if (pair? sub-tree)
-            (count-leaves sub-tree)
-            1))
-      t)))
+      (lambda (x) 1)
+      (enumerate-tree t))))
 
 (define (accumulate op initial sequence)
   (if (null? sequence)
       initial
       (op (car sequence)
           (accumulate op initial (cdr sequence)))))
+
+(define (enumerate-tree tree)
+  (cond ((null? tree) nil)
+        ((not (pair? tree)) (list tree))
+        (else (append (enumerate-tree (car tree))
+                      (enumerate-tree (cdr tree))))))
 
 (define x (list 1 (list 2 3 (list 4 5)) (list 6 7) 8))
 
